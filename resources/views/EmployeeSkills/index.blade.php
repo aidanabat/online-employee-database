@@ -20,7 +20,7 @@
     <thead>
         <tr class="table-warning">
           <td>ID</td>
-          <td>Employee ID</td>
+          <td>Employee ID & Employee Name</td>
           <td>Skill ID</td>
           <td class="text-center">Actions</td>
         </tr>
@@ -29,7 +29,7 @@
         @foreach($employeeSkill as $employeeSkills)
         <tr>
             <td>{{$employeeSkills->id}}</td>
-            <td>{{$employeeSkills->employee_id}}</td>
+            <td>{{$employeeSkills->employee_id}} : {{ $employee[array_search($employeeSkills->employee_id, (array)$employee)]->first_name }} {{ $employee[array_search($employeeSkills->employee_id, (array)$employee)]->middle_name }} {{ $employee[array_search($employeeSkills->employee_id, (array)$employee)]->last_name }}</td>
             <td>{{$employeeSkills->skill_id}}</td>
             <td class="text-center">
                 <a href="{{ route('employeeSkills.edit', $employeeSkills->id)}}" class="btn btn-primary btn-sm">Edit</a>

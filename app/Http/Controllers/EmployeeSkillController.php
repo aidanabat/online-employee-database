@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EmployeeSkill;
+use App\Models\Employee;
 
 class EmployeeSkillController extends Controller
 {
@@ -15,7 +16,8 @@ class EmployeeSkillController extends Controller
     public function index()
     {
         $employeeSkill = EmployeeSkill::all();
-        return view('EmployeeSkills/index', compact('employeeSkill'));
+        $employee = Employee::all();
+        return view('EmployeeSkills/index', compact('employeeSkill'), compact('employee'));
     }
 
     /**
