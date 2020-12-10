@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Position;
 
 class EmployeeController extends Controller
 {
@@ -15,7 +17,8 @@ class EmployeeController extends Controller
     public function index()
     {
         $employee = Employee::all();
-        return view('Employees/index', compact('employee'));
+        $position = Position::all();
+        return view('Employees/index', compact('employee'), compact('position'));
     }
 
     /**

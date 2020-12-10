@@ -25,7 +25,7 @@
           <td>Middle Name</td>
           <td>Birthday</td>
           <td>Age</td>
-          <td>Position ID</td>
+          <td>Position & Position ID</td>
           <td class="text-center">Actions</td>
         </tr>
     </thead>
@@ -38,7 +38,7 @@
             <td>{{$employees->middle_name}}</td>
             <td>{{$employees->birthday}}</td>
             <td>{{$employees->age}}</td>
-            <td>{{$employees->position_id}}</td>
+            <td>{{$employees->position_id}} : {{ $position[$employees->position_id-1]->position_name }}</td>
             <td class="text-center">
                 <a href="{{ route('employees.edit', $employees->id)}}" class="btn btn-primary btn-sm">Edit</a>
                 <form action="{{ route('employees.destroy', $employees->id)}}" method="post" style="display: inline-block">
